@@ -1,0 +1,7 @@
+cat BOOK_I.md \
+    BOOK_II.md \
+    ... \
+    BOOK_LIII.md \
+    POST_CANONICAL_SPEC.md \
+    INFINITE_LIBRARY_SPEC.md \
+    > ZERO_CIRCLE_OMNILIBRARY.md
