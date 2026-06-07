@@ -1,0 +1,12 @@
+import json, os
+
+with open("ZERO_CIRCLE_OMNILIBRARY.json", "r", encoding="utf-8") as f:
+    bundle = json.load(f)
+
+for rel_path, content in bundle["files"].items():
+    full_path = os.path.join("ZERO_CIRCLE_ALL_MD", rel_path)
+    os.makedirs(os.path.dirname(full_path), exist_ok=True)
+    with open(full_path, "w", encoding="utf-8") as out:
+        out.write(content)
+
+print(f"Unpacked {len(bundle['files'])} files into ZERO_CIRCLE_ALL_MD/")
