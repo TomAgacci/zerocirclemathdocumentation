@@ -1,0 +1,4 @@
+# Example .hsn file
+name = ramanujan_custom
+desc = Custom Ramanujan variant
+expr = (pi * sqrt(163))^(1/(pi * sqrt(163)))
