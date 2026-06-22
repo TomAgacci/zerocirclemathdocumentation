@@ -1,0 +1,476 @@
+# Zero Circle Math S (ZCMS)
+## Boundary Trig, Rotations, and Curvature Control
+
+Version: 0.1  
+Module: `zcms_boundary_trig.md`
+
+
+## 1. Core Zero‑Circle Objects
+
+### 1.1 Zero‑Self Reflection State \(S_0\)
+
+- **Symbol:** \(S_0\)
+- **Name:** Zero‑Self Reflection State
+- **Informal meaning:** “Zero looking at itself” — the boundary where zero does not collapse but becomes a stable self‑reference.
+
+**Definition (ZCMS convention):**
+
+- Classical expression:
+  
+
+\[
+  0^0
+  \]
+
+
+- ZCMS interpretation:
+  
+
+\[
+  0^0 \;\equiv\; S_0
+  \]
+
+
+
+\(S_0\) is treated as a **special boundary object**, not a number.
+
+**Key algebraic behaviors (within ZCMS):**
+
+- \(S_0 + 0 = S_0\)
+- \(S_0 \cdot 0 = 0\)
+- \(S_0 \cdot S_0 = S_0\) (idempotent)
+- Division by 0 involving \(S_0\) is forbidden (collapse).
+
+
+### 1.2 Root‑Boundary Tag \(\mathsf{RB}(\cdot)\)
+
+- **Purpose:** Mark values that arise from **boundary square‑root constructions** (e.g., from \(\sqrt{i}\), \(\sqrt{-i}\), or \(\sqrt{z}\) on the unit circle).
+- **Interpretation:** \(\mathsf{RB}(x)\) is numerically equal to \(x\), but semantically tagged as a **Root‑Boundary magnitude** in ZCMS.
+
+Example:
+
+
+\[
+\mathsf{RB}\!\left(\frac{\sqrt{2}}{2}\right)
+\]
+
+
+is the Root‑Boundary version of \(\frac{\sqrt{2}}{2}\).
+
+
+## 2. Complex Roots on the Unit Circle
+
+We use standard complex exponentials, but interpret them as **rotation objects** in ZCMS.
+
+- \(i = e^{i\pi/2}\)
+- \(-i = e^{-i\pi/2}\)
+
+Principal square roots:
+
+
+
+\[
+\sqrt{i} = e^{i\pi/4} = \frac{1}{\sqrt{2}}(1 + i),
+\quad
+\sqrt{-i} = e^{-i\pi/4} = \frac{1}{\sqrt{2}}(1 - i).
+\]
+
+
+
+In ZCMS language:
+
+- \(\sqrt{i}\): **positive quarter‑turn boundary rotation**
+- \(\sqrt{-i}\): **negative quarter‑turn boundary rotation**
+
+
+## 3. Boundary Sine and Cosine
+
+### 3.1 Standard Euler Forms
+
+Classically:
+
+
+
+\[
+\sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i},
+\quad
+\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}.
+\]
+
+
+
+### 3.2 Special Case: \(\theta = 45^\circ = \frac{\pi}{4}\)
+
+Using:
+
+
+
+\[
+e^{i\pi/4} = \sqrt{i},
+\quad
+e^{-i\pi/4} = \sqrt{-i},
+\]
+
+
+
+we get:
+
+
+
+\[
+\sin 45^\circ
+= \frac{\sqrt{i} - \sqrt{-i}}{2i}
+= \frac{\sqrt{2}}{2},
+\]
+
+
+
+
+
+\[
+\cos 45^\circ
+= \frac{\sqrt{i} + \sqrt{-i}}{2}
+= \frac{\sqrt{2}}{2}.
+\]
+
+
+
+### 3.3 ZCMS Boundary Versions
+
+We define **Zero‑Circle sine** and **cosine** as Root‑Boundary tagged versions of the above:
+
+
+
+\[
+\sin_S(\theta)
+= \mathsf{RB}\!\left(
+\frac{e^{i\theta} - e^{-i\theta}}{2i}
+\right),
+\quad
+\cos_S(\theta)
+= \mathsf{RB}\!\left(
+\frac{e^{i\theta} + e^{-i\theta}}{2}
+\right).
+\]
+
+
+
+For \(\theta = 45^\circ\):
+
+
+
+\[
+\sin_S(45^\circ)
+= \mathsf{RB}\!\left(
+\frac{\sqrt{i} - \sqrt{-i}}{2i}
+\right),
+\quad
+\cos_S(45^\circ)
+= \mathsf{RB}\!\left(
+\frac{\sqrt{i} + \sqrt{-i}}{2}
+\right).
+\]
+
+
+
+
+## 4. General Root‑Boundary Trig via \(z = e^{i2\theta}\)
+
+To express boundary trig in a way that emphasizes **square roots of a rotation object**, define:
+
+
+
+\[
+z = e^{i2\theta}.
+\]
+
+
+
+Then:
+
+
+
+\[
+e^{i\theta} = \sqrt{z},
+\quad
+e^{-i\theta} = \sqrt{z^{-1}}
+\]
+
+
+(on a chosen branch of the square root).
+
+Plug into Euler:
+
+
+
+\[
+\sin\theta
+= \frac{\sqrt{z} - \sqrt{z^{-1}}}{2i},
+\quad
+\cos\theta
+= \frac{\sqrt{z} + \sqrt{z^{-1}}}{2}.
+\]
+
+
+
+**ZCMS boundary forms:**
+
+
+
+\[
+\sin_S(\theta)
+= \mathsf{RB}\!\left(
+\frac{\sqrt{z} - \sqrt{z^{-1}}}{2i}
+\right),
+\quad
+\cos_S(\theta)
+= \mathsf{RB}\!\left(
+\frac{\sqrt{z} + \sqrt{z^{-1}}}{2}
+\right),
+\quad
+z = e^{i2\theta}.
+\]
+
+
+
+
+## 5. Zero‑Circle Rotation Operator \(R_S(\theta)\)
+
+### 5.1 Classical 2D Rotation
+
+Standard rotation matrix:
+
+
+
+\[
+R(\theta)
+=
+\begin{pmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \ \cos\theta
+\end{pmatrix}.
+\]
+
+
+
+### 5.2 ZCMS Boundary Rotation Matrix
+
+Replace \(\sin\theta,\cos\theta\) with \(\sin_S(\theta),\cos_S(\theta)\):
+
+
+
+\[
+R_S(\theta)
+=
+\begin{pmatrix}
+\cos_S(\theta) & -\sin_S(\theta) \\
+\sin_S(\theta) & \ \cos_S(\theta)
+\end{pmatrix}.
+\]
+
+
+
+Using the \(z = e^{i2\theta}\) representation:
+
+
+
+\[
+R_S(\theta)
+=
+\mathsf{RB}\!\left(
+\begin{pmatrix}
+\dfrac{\sqrt{z} + \sqrt{z^{-1}}}{2}
+&
+-\dfrac{\sqrt{z} - \sqrt{z^{-1}}}{2i}
+\
+
+\[6pt]
+\dfrac{\sqrt{z} - \sqrt{z^{-1}}}{2i}
+&
+\dfrac{\sqrt{z} + \sqrt{z^{-1}}}{2}
+\end{pmatrix}
+\right),
+\quad
+z = e^{i2\theta}.
+\]
+
+
+
+This is the **Zero‑Circle boundary rotation operator**.
+
+
+## 6. Lifting to Higher‑Dimensional States
+
+### 6.1 Tensor Lift
+
+For an \(n\)-plane boundary state (dimension \(2n\)), define:
+
+
+
+\[
+R_S^{(n)}(\theta)
+= I_n \otimes R_S(\theta),
+\]
+
+
+
+where \(I_n\) is the \(n\times n\) identity and \(\otimes\) is the Kronecker product.
+
+This yields a block‑diagonal matrix with \(n\) copies of \(R_S(\theta)\) along the diagonal, each acting on a 2D boundary plane.
+
+
+### 6.2 Channel‑wise Rotation (Harmonic / Curvature Channels)
+
+Let each boundary plane be indexed by a pair \((c,k)\), where:
+
+- \(c\): curvature channel index,
+- \(k\): harmonic index.
+
+A full state is:
+
+
+
+\[
+V = \bigoplus_{c,k} v_{c,k},
+\quad
+v_{c,k} \in \mathbb{R}^2.
+\]
+
+
+
+Define a **channel‑wise Zero‑Circle rotation**:
+
+
+
+\[
+R_{S,\mathcal{C}}(\theta)
+= \bigoplus_{(c,k)\in\mathcal{C}} R_S(\theta),
+\]
+
+
+
+so that:
+
+
+
+\[
+V' = R_{S,\mathcal{C}}(\theta)\,V
+\]
+
+
+
+rotates all selected channels \((c,k)\) by the same Zero‑Circle angle \(\theta\).
+
+
+## 7. Curvature‑Controlled Rotation
+
+### 7.1 Curvature Field \(\kappa_{c,k}\)
+
+Assume each channel \((c,k)\) has an associated curvature value \(\kappa_{c,k}\).  
+We define an angle map:
+
+
+
+\[
+\theta_{c,k} = f(\kappa_{c,k}),
+\]
+
+
+
+and use it to build channel‑specific rotations:
+
+
+
+\[
+R_{S,\mathcal{C}}^{\text{curv}}
+= \bigoplus_{(c,k)\in\mathcal{C}} R_S\bigl(\theta_{c,k}\bigr).
+\]
+
+
+
+Then:
+
+
+
+\[
+V' = R_{S,\mathcal{C}}^{\text{curv}}\,V
+\]
+
+
+
+is a **curvature‑modulated Zero‑Circle rotation**.
+
+
+### 7.2 Example Angle Maps \(f(\kappa)\)
+
+#### (a) Linear Map (Quantitative)
+
+
+
+\[
+f_{\text{lin}}(\kappa) = \alpha\,\kappa
+\]
+
+
+
+- \(\alpha\): global gain.
+- Direct, proportional coupling between curvature and rotation.
+
+
+#### (b) Saturating Map (Stable Quantitative)
+
+
+
+\[
+f_{\text{sat}}(\kappa) = \theta_{\max}\,\tanh(\beta\,\kappa)
+\]
+
+
+
+- \(\theta_{\max}\): maximum rotation magnitude.
+- \(\beta\): sensitivity.
+- Behaves almost linearly near 0, but saturates for large \(|\kappa|\), preventing excessive rotation.
+
+
+#### (c) Harmonic Map (Quantum‑Flavored / Phase‑Like)
+
+
+
+\[
+f_{\text{harm}}(\kappa) = A \,\sin(\omega\,\kappa + \varphi)
+\]
+
+
+
+- \(A\): amplitude (max rotation).
+- \(\omega\): frequency in curvature space.
+- \(\varphi\): phase offset.
+
+This creates **phase bands** in curvature space, reminiscent of interference or quantum‑style phase structure.
+
+
+### 7.3 Recommended Hybrid Map
+
+For a stable yet expressive ZCMS engine, a useful hybrid is:
+
+
+
+\[
+f(\kappa) = \theta_{\max}\,\tanh(\beta\,\kappa) + A \,\sin(\omega\,\kappa + \varphi).
+\]
+
+
+
+- The **saturating term** ensures stability.
+- The **harmonic term** adds phase‑rich, quantum‑flavored modulation.
+
+
+## 8. Summary
+
+- \(S_0\) encodes the **Zero‑Self Reflection State** (ZCMS interpretation of \(0^0\)).
+- \(\mathsf{RB}(\cdot)\) tags **Root‑Boundary magnitudes** arising from square‑root operations on rotation objects.
+- \(\sin_S(\theta)\) and \(\cos_S(\theta)\) are defined via complex exponentials or via \(\sqrt{z}, \sqrt{z^{-1}}\) with \(z = e^{i2\theta}\).
+- \(R_S(\theta)\) is the **Zero‑Circle boundary rotation operator**, extendable to higher dimensions via Kronecker products and channel‑wise direct sums.
+- Curvature fields \(\kappa_{c,k}\) control rotation angles via maps \(f(\kappa)\), enabling both **quantitative** and **quantum‑flavored** behavior in the engine.
+
+This file can be used as a reference chapter for ZCMS boundary trig, rotations, and curvature‑controlled Zero‑Circle dynamics.
