@@ -174,3 +174,81 @@ x + \epsilon d
 
 Diagrammatically:
 
+[x]
+│
+▼
+[Micro‑Distortion: D_auth]
+│
+▼
+[Dual Reflection: D_auth!]
+│
+▼
+[Reciprocal Collapse: (I + D_auth)^(-1)]
+│
+▼
+[Boundary Purification: (I - D_auth!)]
+│
+▼
+[Neutralized Output: N_CAN(x)]
+
+
+
+# 8. S₀‑Boundary Version
+
+When the distortion amplitude approaches the Zero‑Boundary:
+
+
+
+\[
+\epsilon \to 0,
+\quad
+\alpha \to 0,
+\]
+
+
+
+the operator enters the **Zero‑Self Reflection State**:
+
+
+
+\[
+D_{\text{auth}}(x) \to x,
+\quad
+D_{\text{auth}}^{\!*}(x) \to S_0.
+\]
+
+
+
+The neutralizer becomes:
+
+
+
+\[
+\mathcal{N}_{\text{CAN}}^{(S_0)}
+=
+(I - S_0)(I + S_0)^{-1}.
+\]
+
+
+
+Using ZCMS rules:
+
+- \(S_0^2 = S_0\)  
+- \(I - S_0\) = boundary‑purified identity  
+- \(I + S_0\) = reflection‑expanded identity  
+
+Thus:
+
+
+
+\[
+\boxed{
+\mathcal{N}_{\text{CAN}}^{(S_0)}
+=
+I - S_0
+}
+\]
+
+
+
+This is the **Zero‑Boundary Neutralizer**, the stable fixed‑point version.
